@@ -49,10 +49,7 @@ In order to deploy the accelerator, clone or download this repository, and make 
 
 ### Step 0: Set up the Resources
 
-Initially set up the following resources in Azure portal.
-
-- Cognitive Search
-- Storage Account
+Initially set up a storage account and a cognitive search resource in Azure portal.
 
 ### Step 1: Setup the Environemnt 
 After resources are deployed successfully, navigate to the newly created Storage Account in Azure, and upload the sample documents in a new blob container.
