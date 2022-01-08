@@ -113,7 +113,9 @@ You can test the website locally by running the solution in Visual Studio, or pu
 COMING SOON
 
 ## References 
-This accelerator was inspired by the [Knowledge Mining Solution Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining).
+This accelerator was inspired by the [Knowledge Mining Solution Accelerator](https://github.com/Azure-Samples/azure-search-knowledge-mining) and [CV Knowledge Engine Solution Accelerator](https://github.com/AhmedAlmu/cv-knowledge-engine-accelerator).
 
 ## License
-For all licensing information refer to [LICENSE](https://github.com/AhmedAlmu/cv-knowledge-engine-accelerator/blob/main/LICENSE).
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Licensed under MIT License.
