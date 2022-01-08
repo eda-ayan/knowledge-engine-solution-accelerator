@@ -1,0 +1,40 @@
+{
+      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+      "name": "ObtainGenelToplam",
+      "description": "newskill form analyze",
+      "context": "/document",
+      "uri": "https://interformanalyze.azurewebsites.net/api/faturatrigger",
+      "httpMethod": "POST",
+      "timeout": "PT1M30S",
+      "batchSize": 5,
+      "degreeOfParallelism": null,
+      "inputs": [
+        {
+          "name": "fileurl",
+          "source": "/document/metadata_storage_name"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "toplam",
+          "targetName": "toplam"
+        },
+        {
+          "name": "isim",
+          "targetName": "isim"
+        },
+        {
+          "name": "tarih",
+          "targetName": "tarih"
+        },
+        {
+          "name": "firma",
+          "targetName": "firma"
+        },
+        {
+          "name": "seri_no",
+          "targetName": "seri_no"
+        }
+      ],
+      "httpHeaders": {}
+}
