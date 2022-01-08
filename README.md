@@ -62,7 +62,7 @@ Sample documents should be in the same container to be able to use a single SAS 
 From Azure Form Recognizer Studio, train different custom models for different types of documents. To train a custom model, select the fields you want to extract from the document and label them.
 ![FormRecognizer](https://user-images.githubusercontent.com/25666677/148658436-86c08c49-cfcb-40fb-9186-73c889402cf3.png)
 
-After 2 models are built, compose them.
+After 2 models are built, compose them and save the model id of the composed model.
 
 ![image](https://user-images.githubusercontent.com/25666677/148658472-df230a87-d719-44d5-9bce-f7ea50a58899.png)
 
@@ -71,9 +71,8 @@ After 2 models are built, compose them.
 
 In this step we will create an HTTP Trigger Azure Function in Python that consumes the composed model we built. 
 
-In VS Code, create an HTTP Trigger Azure Function in Python, and replace the code in the "init" file with the code provided in [Assets/Function Script](https://github.com/AhmedAlmu/cv-knowledge-engine-accelerator/tree/main/Assets/Function%20Script). 
+In VS Code, create an HTTP Trigger Azure Function in Python, and replace the code in the "init" file with the code provided in [Assets/Function Script](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/blob/main/assets/extract_info.py). 
 
-This process should be done twice to create two functions, one for Text Extraction and the other for Years of Experience. 
 
 In Text Extraction, make sure to add the values for the Cognitive Services Key and Endpoint in the script, and add "requests" in the requirments file.
 
