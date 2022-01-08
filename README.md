@@ -46,47 +46,34 @@ In order to deploy the accelerator, clone or download this repository, and make 
 - Visual Studio 2019 or later
 - VS Code with Azure Functions extension
 - Sample CV documents
-- Postman 
 
-### Step 0: Deploy the resources
-Using the provided ARM template, create all the required Azure resources by clicking on this button: 
+### Step 0: Set up the Resources
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAhmedAlmu%2Fcv-knowledge-engine-accelerator%2Fmain%2FAssets%2FARM%2520Template%2Ftemplate.json)
+Initially set up the following resources in Azure portal.
+
+- Cognitive Search
+- Storage Account
 
 ### Step 1: Setup the Environemnt 
-After deploying the resources successfully, navigate to the newly created Storage Account in Azure, and upload the sample documents in a new blob container.
+After resources are deployed successfully, navigate to the newly created Storage Account in Azure, and upload the sample documents in a new blob container.
 
 The sample documents can be found in [Assets/Sample Documents](https://github.com/AhmedAlmu/cv-knowledge-engine-accelerator/tree/main/Assets/Sample%20Documents) folder. 
 
-Next, navigate to the folder [Assets/Postman Script](https://github.com/AhmedAlmu/cv-knowledge-engine-accelerator/tree/main/Assets/Postman%20Script) to find the Postman collection that will be used to create the Search Service elements. 
+Sample documents should be in the same container to be able to use a single SAS URI for them.
 
-In Postman, import the collection and fill in the global variables with the proper values. To do that, click on the collection's name and navigate to the "Variables" tab. Modify the values in the "CURRENT VALUE" column according to the following table: 
+### Step 2: Build a Custom Model
+From Azure Form Recognizer Studio, train different custom models for different types of documents. To train a custom model, select the fields you want to extract from the document and label them.
+![FormRecognizer](https://user-images.githubusercontent.com/25666677/148658436-86c08c49-cfcb-40fb-9186-73c889402cf3.png)
 
-| CURRENT VALUE | Value to replace |
-| ------ | ------ |
-| <SEARCH_SERVICE_NAME> | Name of Search Service |
-| <SEARCH_SERVICE_ADMIN_KEY> | Admin Key of Search Service |
-| <COGNATIVE_SERVICE_KEY> | Key of Cognitive Services |
-| <STORAGE_ACCOUNT_NAME> | Name of Storage Account |
-| <STORAGE_ACCOUNT_CONTAINER_NAME> | Name of Storage Container |
-| <STORAGE_CONTAINER_FOLDER_NAME> | Name of Storage Folder, only if used, otherwise replace with empty space |
-| <STORAGE_ACCOUNT_CONNECTION_STRING> | Connection String of Storage Account  |
-| <CUSTOM_SKILL_URL_ONE> | Azure Function URL of Text Extraction Skill |
-| <CUSTOM_SKILL_URL_TWO> | Azure Function URL of Years of Experience Skill |
-| <LOOKUP_TABLE_URL_ONE> | Lookup table URL of Qualifications |
-| <LOOKUP_TABLE_URL_TWO> | Lookup table URL of Languages |
-| <DATASOURCE_NAME> | Name of Datasource |
-| <INDEX_NAME> | Name of Index |
-| <SKILLSET_NAME> | Name of Skillset |
-| <INDEXER_NAME> | Name of Indexer |
+After 2 models are built, compose them.
 
-### Step 2: Create the Datasource
-In Postman, navigate to Create Datasource and run the request. 
-
-This will create a Datasource in the Search Service from the container that has the sample documents. 
+![image](https://user-images.githubusercontent.com/25666677/148658472-df230a87-d719-44d5-9bce-f7ea50a58899.png)
 
 ### Step 3: Create the Skillset 
 #### Step 3a: Custom Skill
+
+In this step we will create an HTTP Trigger Azure Function in Python that consumes the composed model we built. 
+
 In VS Code, create an HTTP Trigger Azure Function in Python, and replace the code in the "init" file with the code provided in [Assets/Function Script](https://github.com/AhmedAlmu/cv-knowledge-engine-accelerator/tree/main/Assets/Function%20Script). 
 
 This process should be done twice to create two functions, one for Text Extraction and the other for Years of Experience. 
