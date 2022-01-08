@@ -13,7 +13,7 @@ The Document Knowledge Engine solution accelerator aims to provides a quick way 
 ![Architecture](https://user-images.githubusercontent.com/88718044/139073235-eb6b8b2c-3577-405e-b974-82bc951676dc.png)
 
 ### Sample Documents 
-The sample documents used to demo this accelerator are 10 invoice documents that are manually created and can be found [here](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/tree/main/invoice_images). The folder contains 2 different types of invoices each containing 5 documents.
+The sample documents used to demo this accelerator are 10 invoice documents that are manually created and can be found [here](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/tree/main/assets/Sample%20Documents). The folder contains 2 different types of invoices each containing 5 documents.
 
 ### Extracted Information
 The information and isights extracted from the invoice documents are: 
@@ -52,7 +52,7 @@ In order to deploy the accelerator, clone or download this repository, and make 
 Initially set up a Storage Account and a Cognitive Search resource in Azure portal.
 
 ### Step 1: Setup the Environemnt 
-After resources are deployed successfully, navigate to the newly created Storage Account in Azure, and upload the sample documents in a new blob container. The sample documents can be found in [Assets/Sample Documents](https://github.com/AhmedAlmu/cv-knowledge-engine-accelerator/tree/main/Assets/Sample%20Documents) folder. Sample documents should be in the same container to be able to use a single SAS URI for them.
+After resources are deployed successfully, navigate to the newly created Storage Account in Azure, and upload the sample documents in a new blob container. The sample documents can be found in [Assets/Sample Documents](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/tree/main/assets/Sample%20Documents) folder. Sample documents should be in the same container to be able to use a single SAS URI for them.
 
 ### Step 2: Build a Custom Model
 From Azure Form Recognizer Studio, train different custom models for different types of documents. To train a custom model, select the fields you want to extract from the document and label them.
@@ -82,7 +82,7 @@ This will create an Index in the Search Service for the information to be extrac
 
 ### Step 5: Add the Custom Skill
 
-After your index and indexer are created, we need to modify the skillset to add the custom skill we created. In the Search Service page, move to the Skillsets tab and choose the skillset you created. Add the json object in [skills.txt](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/blob/main/assets/skill.txt) to the skillset definition as described in the [tutorial](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface). Don't forget to update the function uri with the name of your function and trigger.
+After your index and indexer are created, we need to modify the skillset to add the custom skill we created. In the Search Service page, move to the Skillsets tab and choose the skillset you created. Add the json object in [skills.txt](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/blob/main/assets/Custom%20Skill%20Script/skill.txt) to the skillset definition as described in the [tutorial](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface). Don't forget to update the function uri with the name of your function and trigger.
 
 ### Step 6: Update the Indexer
 
@@ -93,7 +93,7 @@ The skillset we created takes the name of the file as the input and outputs the 
 Then save, reset and run the indexer. 
 
 ### Step 6: Create the Web App Interface
-In [Assets/Website Template](https://github.com/AhmedAlmu/cv-knowledge-engine-accelerator/tree/main/Assets/Website%20Template), open the solution file "CognitiveSearch.Template.sln" in Visual Studio. 
+In [Assets/Website Template](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/tree/main/assets/Website%20Template), open the solution file "CognitiveSearch.Template.sln" in Visual Studio. 
 
 Navigate to the "appsettings.json" file, and change the values according to the following table:
 
