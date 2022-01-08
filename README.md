@@ -16,25 +16,16 @@ The Document Knowledge Engine solution accelerator aims to provides a quick way 
 The sample documents used to demo this accelerator are 10 invoice documents that are manually created and can be found [here](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/tree/main/invoice_images). The folder contains 2 different types of invoices each containing 5 documents.
 
 ### Extracted Information
-The information and isights extracted from the CV documents can be grouped into three categories: 
+The information and isights extracted from the invoice documents are: 
 
-#### PII Information
-- Name 
-- Email
-- Phone number
-- Location 
-- LinkedIn 
-#### Professional Information
-- Years of experience
-- Qualifications
-- Languages
-- Organizations
-- Skills 
-#### Other Insights
-- Key phrases
+- Receiver name 
+- Company name
+- Date
+- Serial number 
+- General total 
 
 ### Web App Interface
-The first interface created to display the extracted insights is a website interface, that can be used to search and filter through the CV documents.
+The first interface created to display the extracted insights is a website interface, that can be used to search and filter through the invoice documents.
 
 #### Home Page
 ![Home Page](https://user-images.githubusercontent.com/88718044/139071306-6595000e-a33c-4dca-85eb-ed6c475d66cf.jpeg)
