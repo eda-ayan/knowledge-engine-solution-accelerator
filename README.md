@@ -82,7 +82,15 @@ This will create an Index in the Search Service for the information to be extrac
 
 ### Step 5: Add the Custom Skill
 
-After your index and indexer are created, we need to modify the skillset to add the custom skill we created. In the Search Service page, move to the Skillsets tab and choose the skillset you created. 
+After your index and indexer are created, we need to modify the skillset to add the custom skill we created. In the Search Service page, move to the Skillsets tab and choose the skillset you created. Add the json object in [skills.txt](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/blob/main/assets/skill.txt) to the skillset definition as described in the [tutorial](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface). Don't forget to update the function uri with the name of your function and trigger.
+
+### Step 6: Update the Indexer
+
+The skillset we created takes the name of the file as the input and outputs the desired values. But these outputs should also be added to the indexer. Navigate to the indexer tab and choose the indexer you created. Open the indexer definition json file and your output labels to the outputFieldMappings as below.
+
+![image](https://user-images.githubusercontent.com/25666677/148660047-55e215ef-8c7b-473b-96d6-05f54d6984fe.png)
+
+Then save, reset and run the indexer. 
 
 ### Step 6: Create the Web App Interface
 In [Assets/Website Template](https://github.com/AhmedAlmu/cv-knowledge-engine-accelerator/tree/main/Assets/Website%20Template), open the solution file "CognitiveSearch.Template.sln" in Visual Studio. 
