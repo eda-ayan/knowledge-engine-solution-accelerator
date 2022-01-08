@@ -1,9 +1,9 @@
 {
       "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-      "name": "ObtainGenelToplam",
-      "description": "newskill form analyze",
+      "name": "FormRecognizerSkill",
+      "description": "extract values from from recognizer",
       "context": "/document",
-      "uri": "https://interformanalyze.azurewebsites.net/api/faturatrigger",
+      "uri": "https://<your-function-name>.azurewebsites.net/api/<your-trigger-name>",
       "httpMethod": "POST",
       "timeout": "PT1M30S",
       "batchSize": 5,
