@@ -73,8 +73,8 @@ In this step we will create an HTTP Trigger Azure Function in Python that consum
 
 In VS Code, create an HTTP Trigger Azure Function in Python, and replace the code in the "init" file with the code provided in [Assets/Function Script](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/blob/main/assets/extract_info.py). 
 
-
-In Text Extraction, make sure to add the values for the Cognitive Services Key and Endpoint in the script, and add "requests" in the requirments file.
+In the init file, make sure to add the values for the Form Recognizer Services Key, Endpoint and model id in the script.
+You also need to obtain a SAS URL for the container you hold the documents. Instructions on how to generate SAS URLs: [Generate SAS tokens for storage containers](https://www.google.com/search?q=how+to+obtain+azure+blob+storage+container+sas+url&rlz=1C1GCEU_trTR970TR970&oq=how+to+obtain+azure+blob+storage+container+sas+url&aqs=chrome..69i57.14028j0j4&sourceid=chrome&ie=UTF-8)
 
 To deploy the function, you can follow the instructions provided in here: [Develop Azure Functions by using Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=python).
 
