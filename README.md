@@ -30,8 +30,9 @@ The first interface created to display the extracted insights is a website inter
 #### Home Page
 ![Home Page](https://user-images.githubusercontent.com/88718044/139071306-6595000e-a33c-4dca-85eb-ed6c475d66cf.jpeg)
 
+
 #### Search Results
-![Search Results](https://user-images.githubusercontent.com/88718044/139071348-131db6aa-f11b-4857-88b4-cbe61bae5fb6.jpeg)
+![Search Results](https://user-images.githubusercontent.com/25666677/148658108-320d599e-440a-4a90-8b89-6c5386b071bd.png)
 
 ### PowerBI Dashboard
 COMING SOON
