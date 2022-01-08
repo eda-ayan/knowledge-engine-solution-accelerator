@@ -10,17 +10,13 @@ from azure.ai.formrecognizer import DocumentModelAdministrationClient
 from azure.core.credentials import AzureKeyCredential
 import subprocess
 
-endpoint = "https://edafr.cognitiveservices.azure.com/"
-key = "7b9e99198e564f3ebb30236532c78d16"
+endpoint = "https://<your-form-recognizer-resource-name>.cognitiveservices.azure.com/"
+key = "<your-form-recognizer-key>"
 
 credential = AzureKeyCredential(key)
 
 document_analysis_client = DocumentAnalysisClient(endpoint, credential)
-model_id = "composednew"
-
-#document_url = https://taysunlarform.blob.core.windows.net/taysunlarformlar/taysunlar-page-001.jpg
-
-#https://trcvkmstr.blob.core.windows.net/faturainternet/inter1.PNG
+model_id = "<your-model-id>"
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
@@ -75,10 +71,8 @@ def transform_value(value):
             })
 
     try:                
-        concatenated_string = value['data']['fileurl']
-        fullname = "https://taysunlarform.blob.core.windows.net/edited/edited5.png"
-        x = "https://taysunlarform.blob.core.windows.net/edited/edited1.png?sp=racwdyti&st=2022-01-04T16:33:16Z&se=2022-03-17T00:33:16Z&spr=https&sv=2020-08-04&sr=b&sig=nnHWb1gY%2BYjFXZLGg9S3WP46ChD7FkRRJDUA9DdJ%2BIE%3D"
-        docUrl = "https://taysunlarform.blob.core.windows.net/edited/"+concatenated_string+"?sp=racwdli&st=2022-01-04T16:37:20Z&se=2022-04-13T00:37:20Z&spr=https&sv=2020-08-04&sr=c&sig=591tOYcCW5Jh59LG7x9Qsj6H1oDZI35Qb%2FmG5GC8mA4%3D"
+        filename = value['data']['fileurl']
+        docUrl = "https://<your-storage-account-name>.blob.core.windows.net/edited/"+filename+"?sp=racwdli&st=<>&se=<>&spr=https&sv=<>&sr=c&sig=<>"
         poller = document_analysis_client.begin_analyze_document_from_url(model=model_id, document_url=docUrl)
         result = poller.result()
         return_dict = {}
