@@ -13,7 +13,7 @@ The Document Knowledge Engine solution accelerator aims to provides a quick way 
 ![Architecture](https://user-images.githubusercontent.com/88718044/139073235-eb6b8b2c-3577-405e-b974-82bc951676dc.png)
 
 ### Sample Documents 
-The sample documents used to demo this accelerator are 10 invoice documents that are manually created and can be found here. 
+The sample documents used to demo this accelerator are 10 invoice documents that are manually created and can be found [here](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/tree/main/invoice_images). The folder contains 2 different types of invoices each containing 5 documents.
 
 ### Extracted Information
 The information and isights extracted from the CV documents can be grouped into three categories: 
