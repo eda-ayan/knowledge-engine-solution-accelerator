@@ -103,7 +103,7 @@ def transform_value(value):
                 "toplam": toplam,
                 "tarih": modified_date,
                 "isim": isim,
-                #"seri_no": seri_no,
+                "seri_no": seri_no,
                 "firma": firma     
                     },
             "errors": None,
