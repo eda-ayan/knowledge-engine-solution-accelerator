@@ -10,7 +10,9 @@ from azure.ai.formrecognizer import DocumentModelAdministrationClient
 from azure.core.credentials import AzureKeyCredential
 import subprocess
 
-endpoint = "https://<your-form-recognizer-resource-name>.cognitiveservices.azure.com/"
+from pkg_resources import yield_lines
+
+endpoint = "https://<your-form-recognizer-name>.cognitiveservices.azure.com/"
 key = "<your-form-recognizer-key>"
 
 credential = AzureKeyCredential(key)
@@ -71,8 +73,8 @@ def transform_value(value):
             })
 
     try:                
-        filename = value['data']['fileurl']
-        docUrl = "https://<your-storage-account-name>.blob.core.windows.net/edited/"+filename+"?sp=racwdli&st=<>&se=<>&spr=https&sv=<>&sr=c&sig=<>"
+        doc_name = value['data']['fileurl']
+        docUrl = "https://taysunlarform.blob.core.windows.net/edited/"+doc_name+"?sp=racwdli&st=2022-01-04T16:37:20Z&se=2022-04-13T00:37:20Z&spr=https&sv=2020-08-04&sr=c&sig=591tOYcCW5Jh59LG7x9Qsj6H1oDZI35Qb%2FmG5GC8mA4%3D"
         poller = document_analysis_client.begin_analyze_document_from_url(model=model_id, document_url=docUrl)
         result = poller.result()
         return_dict = {}
@@ -80,16 +82,32 @@ def transform_value(value):
             for name, field in analyzed_document.fields.items():
                 return_dict.update({name: field.value})
         toplam = float(return_dict['toplam'])
+        if toplam <= 50:
+            toplam_aralik = "0-50"
+        elif toplam <= 100:
+            toplam_aralik = "50-100"
+        elif toplam <= 150:
+            toplam_aralik = "100-150"
+        elif toplam <= 250:
+            toplam_aralik = "150-250"
+        elif toplam <= 500:
+            toplam_aralik = "250-500"
+        else:
+            toplam_aralik = "500+"
         isim = return_dict['isim']
         firma = return_dict['firma']
-        seri_no = return_dict['seri_no']
+        seri_no = int(return_dict['seri_no'])
         date_time_str = return_dict['tarih']
         if "/" in date_time_str:
             s = ''.join(x for x in date_time_str if x.isdigit())
             modified_date="{}-{}-{}T00:00:00Z".format(s[4:8],s[2:4],s[0:2])
+            yil = s[4:8]
+            ay = s[2:4]
         else:
             splitted = date_time_str.split(".")
             modified_date="{}-{}-{}T00:00:00Z".format(splitted[2],splitted[1],splitted[0])
+            yil = splitted[2]
+            ay = splitted[1]
     except:
         return (
             {
@@ -100,11 +118,14 @@ def transform_value(value):
     return ({
             "recordId": recordId,
             "data": {
-                "toplam": toplam,
-                "tarih": modified_date,
+                "toplam": str(toplam),
+                "tarih": str(modified_date),
                 "isim": isim,
-                "seri_no": seri_no,
-                "firma": firma     
+                "seri_no": str(seri_no),
+                "firma": firma,
+                "ay": ay,
+                "yil": yil,
+                "toplam_aralik": toplam_aralik   
                     },
             "errors": None,
             "warnings": None
