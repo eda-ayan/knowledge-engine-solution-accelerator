@@ -1,5 +1,5 @@
 # Document Knowledge Engine Solution Accelerator
-
+https://github.com/eda-ayan/knowledge-engine-solution-accelerator/blob/main/invoice_demo.mp4
 ## About this accelerator
 The Document Knowledge Engine solution accelerator aims to provides a quick way of creating an intelligent search engine, that enables searching and filtering through invoice and receipt documents. It leverages Knowledge Mining and Cognitive Services technologies, to extract all the valuable information and insights from the incoive documents, like company names, total, serial number, date, ..etc. It also creates an intuitive, easy-to-navigate user interface, that allows for a full search experience with capabilities like searching with search terms, customized filters, and informative result cards. Moreover, the extracted information can also be exported to Power BI and used to create informative dashboards, to give a high level overview of the information extracted. 
 
