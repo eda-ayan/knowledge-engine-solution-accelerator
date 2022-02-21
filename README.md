@@ -45,7 +45,7 @@ In order to deploy the accelerator, clone or download this repository, and make 
 - Azure Subscription 
 - Visual Studio 2019 or later
 - VS Code with Azure Functions extension
-- Sample CV documents
+- Sample documents
 
 ### Step 0: Set up the Resources
 
@@ -118,4 +118,4 @@ This accelerator was inspired by the [Knowledge Mining Solution Accelerator](htt
 ## License
 Copyright (c) Microsoft Corporation. All rights reserved.
 
-Licensed under MIT License.
+Licensed under [MIT License](https://github.com/eda-ayan/knowledge-engine-solution-accelerator/blob/main/LICENSE).

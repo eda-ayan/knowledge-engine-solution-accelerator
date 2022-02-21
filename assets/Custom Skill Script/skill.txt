@@ -34,6 +34,18 @@
         {
           "name": "seri_no",
           "targetName": "seri_no"
+        },
+        {
+          "name": "toplam_aralik",
+          "targetName": "toplam_aralik"
+        },
+        {
+          "name": "ay",
+          "targetName": "ay"
+        },
+        {
+          "name": "yil",
+          "targetName": "yil"
         }
       ],
       "httpHeaders": {}
