@@ -37,7 +37,7 @@ The first interface created to display the extracted insights is a website inter
 ### PowerBI Dashboard
 COMING SOON
 
-## Deployemnt Process
+## Deployment Process
 Deploying the accelerator can be done in seven simple steps, that cover every aspect from deploying the resources, creating the search service elements, and conecting to the web interface. 
 
 ### Prerequisites
